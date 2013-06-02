@@ -39,7 +39,7 @@ node[:rvm][:users].each do |rvm_user|
       user rvm_user[:user]
       group rvm_user[:group]
       environment env
-      only_if "[ $(#{node[:rvm_bin]} list | grep -c #{ruby}) -eq 0 ]"
+      not_if "ls #{rvm_dir}/rubies | grep #{ruby}"
     end
 
   end
