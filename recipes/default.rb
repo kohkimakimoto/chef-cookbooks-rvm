@@ -44,13 +44,13 @@ node[:rvm][:users].each do |rvm_user|
 
   end
 
-  bash "Set default ruby on #{rvm_user[:user]}" do
-    code "#{rvm_bin} --default use #{rvm_user[:default]}"
-    user rvm_user[:user]
-    group rvm_user[:group]
-    environment env
-    not_if "[ -e #{rvm_dir}/bin/ruby ]"
-  end
+#  bash "Set default ruby on #{rvm_user[:user]}" do
+#    code "#{rvm_bin} --default use #{rvm_user[:default]}"
+#    user rvm_user[:user]
+#    group rvm_user[:group]
+#    environment env
+#    not_if "[ -e #{rvm_dir}/bin/ruby ]"
+#  end
 
 end
 
