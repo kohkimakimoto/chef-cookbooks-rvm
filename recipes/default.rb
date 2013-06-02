@@ -25,6 +25,7 @@ node[:rvm][:users].each do |rvm_user|
   bash "Installing rvm on #{rvm_user[:user]}" do
     code "curl -Lk #{node[:rvm][:installer_url]} | bash -s stable"
     user rvm_user[:user]
+    group rvm_user[:group]
     environment env
     not_if "[ -d #{rvm_dir} ]"
   end
@@ -35,6 +36,8 @@ node[:rvm][:users].each do |rvm_user|
       code %{
         #{rvm_bin} install #{ruby}
       }
+      user rvm_user[:user]
+      group rvm_user[:group]
       environment env
       only_if "[ $(#{node[:rvm_bin]} list | grep -c #{ruby}) -eq 0 ]"
     end
@@ -44,6 +47,7 @@ node[:rvm][:users].each do |rvm_user|
   bash "Set default ruby on #{rvm_user[:user]}" do
     code "#{rvm_bin} --default user #{rvm_user[:default]}"
     user rvm_user[:user]
+    group rvm_user[:group]
     environment env
     not_if "[ -e #{rvm_dir}/bin/ruby ]"
   end

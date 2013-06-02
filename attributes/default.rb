@@ -24,8 +24,8 @@ default[:rvm][:dependencies] = [
 ]
 default[:rvm][:installer_url] = "https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer"
 default[:rvm][:users] = [
-#  {:user => "kohkimakimoto", :rubies => ["2.0.0"], :default => "2.0.0"} # Single user install.
-#  {:user => "root", :rubies => ["2.0.0"], :default => "2.0.0"} # System wide install.
+#  {:user => "kohkimakimoto", :group => "kohkimakimoto", :rubies => ["2.0.0"], :default => "2.0.0"} # Single user install.
+#  {:user => "root", :group => "root", :rubies => ["2.0.0"], :default => "2.0.0"} # System wide install.
 ]
 
 
