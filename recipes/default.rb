@@ -44,6 +44,13 @@ node[:rvm][:users].each do |rvm_user|
 
   end
 
+#
+# Can't set automatically to use default ruby 
+#   You need to run manually like below 
+#   
+#   $ rvm --default use 2.0.0
+# 
+
 #  bash "Set default ruby on #{rvm_user[:user]}" do
 #    code "#{rvm_bin} --default use #{rvm_user[:default]}"
 #    user rvm_user[:user]
